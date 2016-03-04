@@ -1,52 +1,36 @@
+<!DOCTYPE html>
 <html>
-<script>
 
- var logToDom = function (message) {
-            var e = document.createElement('label');
-            e.innerText = message;
+<head>
 
-            var br = document.createElement('br');
-            var br2 = document.createElement('br');
-            document.body.appendChild(e);
-            document.body.appendChild(br);
-            document.body.appendChild(br2);
-        };
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no
+		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
-        var delegate = new cordova.plugins.locationManager.Delegate().implement({
+	<title>Cordova iBeacon</title>
 
-            didDetermineStateForRegion: function (pluginResult) {
+	<style>
+		@import 'ui/css/evothings-app.css';
+	</style>
 
-                logToDom('[DOM] didDetermineStateForRegion: ' + JSON.stringify(pluginResult));
+	<script>
+	// Redirect console.log to Evothings Workbench.
+	if (window.hyper && window.hyper.log) { console.log = hyper.log }
+	</script>
+	<script src="app.js"></script>
 
-                cordova.plugins.locationManager.appendToDeviceLog('[DOM] didDetermineStateForRegion: '
-                    + JSON.stringify(pluginResult));
-            },
+</head>
 
-            didStartMonitoringForRegion: function (pluginResult) {
-                console.log('didStartMonitoringForRegion:', pluginResult);
+<body>
 
-                logToDom('didStartMonitoringForRegion:' + JSON.stringify(pluginResult));
-            },
+	<h1>Cordova iBeacon</h1>
 
-            didRangeBeaconsInRegion: function (pluginResult) {
-                logToDom('[DOM] didRangeBeaconsInRegion: ' + JSON.stringify(pluginResult));
-            }
+	<p>This app displays the nearest ranged beacon and monitors region enter/exit events. Before the app will work you need to add your beacons by editing the variables mRegions and mRegionData in file app.js.</p>
 
-        });
+	<ul id="beacon" class="dynamic"></ul>
 
-        var uuid = '1a899c8c-2876-41ae-b189-4df3d13b2d0';
-        var identifier = 'beaconOnTheMacBooksShelf';
-        var minor = 7803;
-        var major = 23906;
-        var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+	<ul id="events" class="dynamic"></ul>
 
-        cordova.plugins.locationManager.setDelegate(delegate);
-        cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
-            .fail(console.error)
-            .done();
-
-
-</script>
-
+</body>
 
 </html>
