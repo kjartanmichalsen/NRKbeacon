@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no,
 		shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
-	<title>Tanja-Scan</title>
+	<title>NRKGuide</title>
 
 	<style>
 		@import 'ui/css/evothings-app.css';
@@ -33,14 +33,22 @@
 			<img src="ui/images/arrow-left.svg" />
 		</button>
 
-		<img class="logotype" src="ui/images/logo.svg" alt="Evothings" />
+		<img class="logotype" src="ui/images/nrk.png" alt="NRK" />
 
 		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
 	</header>
 
-	<h1>Tanja-Scan</h1>
-	<p id="warning">To detect Tanjas you will have to add the 128bit UUID's you
-	are looking for to the regions array in app.js of the iBeacon example.
+	
+    <div id="medieutvikling" class="locationCard">
+        <h1>Velkommen til medieutvikling!</h1>
+        I denne etasjen finner du medieutvikling - avdelingen som lager NRKs digitale produkter, så som nrk.no, NRK TV, yr og bortetter.
+    </div>
+    <div id="ludo" class="locationCard">
+        <h1>Velkommen til LUDO!</h1>
+        Her lages morgendagens videoavspiller. Vårt håp er å bidra til å drepe flash innen rimelig tid.
+    </div>
+    
+	<p id="warning">Velkommen til NRK. Beveg deg rundt i glassgården og oppdag teknologiens vidunderlige verden. 
 	</p>
 	<ul id="found-beacons" class="dynamic"></ul>
 

@@ -766,3 +766,9 @@ input.btn-group.black:checked + label {
 		screen and (orientation: landscape) and (min-device-pixel-ratio : 2) {
 	body { font-size: 4.5vw; }
 }
+
+/* NRKBacon */
+
+div.locationCard{
+ display: none;
+}

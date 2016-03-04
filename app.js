@@ -6,8 +6,10 @@ var app = (function()
 	// Specify your beacon 128bit UUIDs here.
 	var regions =
 	[
-		// Estimote Beacon factory UUID.
-		{uuid:'1A899C8C-2876-41AE-B189-4DF3D1F3B2D0'},
+		// Svart firkanta
+		{uuid:'1a899c8c-2876-41ae-b189-4df3d1f3b2d0'},
+        // Kjartan iPhone Ludo
+		{uuid:'92ab49be-4127-42f4-b532-90faf1e26491'},
 
 	];
 
@@ -100,6 +102,9 @@ var app = (function()
 
 	function displayBeaconList()
 	{
+        var status = new Array();
+        
+        
 		// Clear beacon list.
 		$('#found-beacons').empty();
 
@@ -108,6 +113,9 @@ var app = (function()
 		// Update beacon list.
 		$.each(beacons, function(key, beacon)
 		{
+            
+            // finne id til den som er nærmest nå
+            
 			// Only show beacons that are updated during the last 60 seconds.
 			if (beacon.timeStamp + 60000 > timeNow)
 			{
@@ -123,16 +131,45 @@ var app = (function()
 					+	'Major: ' + beacon.major + '<br />'
 					+	'Minor: ' + beacon.minor + '<br />'
 					+	'Proximity: ' + beacon.proximity + '<br />'
-					+	'RSSI: ' + beacon.rssi + '<br />'
+					+	'RSSI: ' + beacon.rssi + ':'+rssiWidth+'<br />'
 					+ 	'<div style="background:rgb(255,128,64);height:20px;width:'
 					+ 		rssiWidth + '%;"></div>'
 					+ '</li>'
 				);
 
 				$('#warning').remove();
-				$('#found-beacons').append(element);
+				//$('#found-beacons').append(element);
+                
+               // $('.locationCard').hide();
+                
+                
+                if(rssiWidth >= 30){
+                status.push({name: beacon.uuid.toLowerCase(), val: rssiWidth});
+                }
+                
+                
+                /*if(beacon.proximity == "ProximityNear" || beacon.proximity == "ProximityImmediate"){   
+                    
+                }*/
 			}
 		});
+        
+        status.sort(function(a,b) {
+            return a.val - b.val;
+        });
+        
+        //$('#found-beacons').append(status[0].name);
+        
+        if(status[0].name == "92ab49be-4127-42f4-b532-90faf1e26491".toLowerCase()){
+                        $('.locationCard').hide();
+                        $('#ludo').show();                      
+                    } else if(status[0].name == "1a899c8c-2876-41ae-b189-4df3d1f3b2d0".toLowerCase()){
+                        $('.locationCard').hide();
+                        $('#medieutvikling').show();
+                    } else {
+                        $('.locationCard').hide();
+                    }
+        
 	}
 
 	return app;
