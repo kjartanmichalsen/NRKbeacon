@@ -18,7 +18,13 @@
     </author>
         
     <platform name="android" />
-    <platform name="ios" />
+    <!--platform name="ios" /-->
+        
     <plugin name="com.unarin.cordova.beacon" spec="3.2.1" source="pgb" />
+    <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
 
+    <access origin="http://*.youtube.com" />
+<access origin="https://*.youtube.com" />
+        
+        
 </widget>
