@@ -4,10 +4,10 @@
 <head>
 
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, user-scalable=no
-		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+		shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
-	<title>Cordova iBeacon</title>
+	<title>Tanja-Scan</title>
 
 	<style>
 		@import 'ui/css/evothings-app.css';
@@ -17,19 +17,32 @@
 	// Redirect console.log to Evothings Workbench.
 	if (window.hyper && window.hyper.log) { console.log = hyper.log }
 	</script>
+
+	<script src="cordova.js"></script>
+	<script src="libs/jquery/jquery.js"></script>
+	<script src="libs/evothings/evothings.js"></script>
+	<script src="libs/evothings/ui/ui.js"></script>
 	<script src="app.js"></script>
 
 </head>
 
 <body>
 
-	<h1>Cordova iBeacon</h1>
+	<header>
+		<button class="back" onclick="history.back()">
+			<img src="ui/images/arrow-left.svg" />
+		</button>
 
-	<p>This app displays the nearest ranged beacon and monitors region enter/exit events. Before the app will work you need to add your beacons by editing the variables mRegions and mRegionData in file app.js.</p>
+		<img class="logotype" src="ui/images/logo.svg" alt="Evothings" />
 
-	<ul id="beacon" class="dynamic"></ul>
+		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
+	</header>
 
-	<ul id="events" class="dynamic"></ul>
+	<h1>Tanja-Scan</h1>
+	<p id="warning">To detect Tanjas you will have to add the 128bit UUID's you
+	are looking for to the regions array in app.js of the iBeacon example.
+	</p>
+	<ul id="found-beacons" class="dynamic"></ul>
 
 </body>
 
