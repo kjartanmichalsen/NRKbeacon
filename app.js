@@ -142,7 +142,7 @@ var app = (function()
                 
                // $('.locationCard').hide();
                 
-                
+                // legg sendestyrke + uuid til array
                 if(rssiWidth >= 30){
                 status.push({name: beacon.uuid.toLowerCase(), val: rssiWidth});
                 }
@@ -154,6 +154,7 @@ var app = (function()
 			}
 		});
         
+        // sortere etter sendestyrke
         status.sort(function(a,b) {
             return a.val - b.val;
         });
