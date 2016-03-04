@@ -18,6 +18,6 @@
     </author>
         
     <platform name="android" />
-    <plugin name="com.conetix.ibeacon" spec="1.0.0" source="pgb" />
+    <plugin name="com.unarin.cordova.beacon" spec="3.2.1" source="pgb" />
 
 </widget>
