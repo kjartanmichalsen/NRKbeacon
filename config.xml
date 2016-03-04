@@ -18,6 +18,7 @@
     </author>
         
     <platform name="android" />
+    <platform name="ios" />
     <plugin name="com.unarin.cordova.beacon" spec="3.2.1" source="pgb" />
 
 </widget>
