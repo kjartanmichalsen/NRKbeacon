@@ -1,0 +1,52 @@
+<html>
+<script>
+
+ var logToDom = function (message) {
+            var e = document.createElement('label');
+            e.innerText = message;
+
+            var br = document.createElement('br');
+            var br2 = document.createElement('br');
+            document.body.appendChild(e);
+            document.body.appendChild(br);
+            document.body.appendChild(br2);
+        };
+
+        var delegate = new cordova.plugins.locationManager.Delegate().implement({
+
+            didDetermineStateForRegion: function (pluginResult) {
+
+                logToDom('[DOM] didDetermineStateForRegion: ' + JSON.stringify(pluginResult));
+
+                cordova.plugins.locationManager.appendToDeviceLog('[DOM] didDetermineStateForRegion: '
+                    + JSON.stringify(pluginResult));
+            },
+
+            didStartMonitoringForRegion: function (pluginResult) {
+                console.log('didStartMonitoringForRegion:', pluginResult);
+
+                logToDom('didStartMonitoringForRegion:' + JSON.stringify(pluginResult));
+            },
+
+            didRangeBeaconsInRegion: function (pluginResult) {
+                logToDom('[DOM] didRangeBeaconsInRegion: ' + JSON.stringify(pluginResult));
+            }
+
+        });
+
+        var uuid = '1a899c8c-2876-41ae-b189-4df3d13b2d0';
+        var identifier = 'beaconOnTheMacBooksShelf';
+        var minor = 7803;
+        var major = 23906;
+        var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+
+        cordova.plugins.locationManager.setDelegate(delegate);
+        cordova.plugins.locationManager.startMonitoringForRegion(beaconRegion)
+            .fail(console.error)
+            .done();
+
+
+</script>
+
+
+</html>
