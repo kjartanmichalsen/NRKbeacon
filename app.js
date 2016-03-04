@@ -33,7 +33,7 @@ var app = (function()
 	[
 		{
 			id: 'region1',
-			uuid: '1a899c8c-2876-41ae-b189-4df3d13b2d0',
+			uuid: '1A899C8C-2876-41AE-B189-4DF3D1F3B2D0',
 			major: 7803,
 			minor: 23906
 		},
