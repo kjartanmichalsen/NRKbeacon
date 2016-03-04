@@ -23,8 +23,10 @@
     <plugin name="com.unarin.cordova.beacon" spec="3.2.1" source="pgb" />
     <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
 
-    <access origin="http://*.youtube.com" />
-<access origin="https://*.youtube.com" />
+        <access origin="http://*.youtube.com" />
+        <access origin="https://*.youtube.com" />
+        
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://*.youtube.com">
         
         
 </widget>
